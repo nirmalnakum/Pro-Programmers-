@@ -1,6 +1,12 @@
-# Snake Game (Console Application)
+# Snake Game By Pro Programmers
 
 This is a simple Snake Game implemented in C++ where the player controls the snake to eat food, avoiding the snake's own body or the screen boundaries. The game increases speed as the score goes up. The game ends if the snake collides with its own body or the screen borders.
+
+## Members
+
+- 1.Nirmal Nakum => 202401022
+- 2.Ayush Donga => 202401052
+- 3.Rajveersinh Gohil => 202401057
 
 ## Requirements
 
