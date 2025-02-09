@@ -4,9 +4,9 @@ This is a simple Snake Game implemented in C++ where the player controls the sna
 
 ## Members
 
-- 1.Nirmal Nakum => 202401022
-- 2.Ayush Donga => 202401052
-- 3.Rajveersinh Gohil => 202401057
+- Nirmal Nakum => 202401022
+- Ayush Donga => 202401052
+- Rajveersinh Gohil => 202401057
 
 ## Requirements
 
