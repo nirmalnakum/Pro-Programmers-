@@ -9,7 +9,7 @@ This is a simple Snake Game implemented in C++ where the player controls the sna
 
 ## Files
 
-- `SnakeGame.cpp` - The main code for the Snake game.
+- finalsnakegame.cpp - The main code for the Snake game.
 
 ## How to Play
 
