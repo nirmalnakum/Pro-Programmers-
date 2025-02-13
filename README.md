@@ -80,10 +80,10 @@ When the game ends:
 
 1. **Windows (MSVC or MinGW)**:
    - Open a terminal (Command Prompt or PowerShell).
-   - Navigate to the directory containing `SnakeGame.cpp`.
+   - Navigate to the directory containing `snakegame.cpp`.
    - Run the following command to compile the code:
      ```
-     g++ SnakeGame.cpp -o SnakeGame
+     g++ snakegame.cpp -o SnakeGame
      ```
    - Run the game:
      ```
