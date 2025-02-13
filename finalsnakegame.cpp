@@ -8,7 +8,7 @@ class SnakeGame {
 private:
     const int w = 50;
     const int h = 25;
-    int x, y, foodX, foodY, score;
+    int x, y, foodX, foodY;
     int tailX[100], tailY[100];
     int nTail;
     int speed;
@@ -32,51 +32,60 @@ private:
 
 public:
     bool gameOver;
+    int score,maxscore;
+
     SnakeGame() {
         gameOver = false;
-        dir = STOP;
+        dir = RIGHT;
         x = w / 2;
         y = h / 2;
         foodX = rand() % w;
         foodY = rand() % h;
         score = 0;
-        nTail = 0;
-        speed = 50; // Initial speed
+        maxscore = 0;
+
+        nTail = 2;
+        for (int i = 0; i < nTail; i++) {
+            tailX[i] = x - (i + 1);
+            tailY[i] = y;
+        }
+        speed = 50;
         HideCursor();
     }
 
     void Draw() {
         gotoxy(0, 0);
-        for (int i = 0; i < w + 2; i++) cout << "#";
+        for (int i = 0; i < w + 2; i++) cout<<"*";
+    
         cout << endl;
 
         for (int i = 0; i < h; i++) {
             for (int j = 0; j < w; j++) {
-                if (j == 0) cout << "#"; 
+                if (j == 0) cout << "*"; 
 
                 if (i == y && j == x)
-                    cout << "O"; // Snake head
+                    cout << "O";
                 else if (i == foodY && j == foodX)
-                    cout << "F"; // Fruit
+                    cout << "F";
                 else {
                     bool print = false;
                     for (int k = 0; k < nTail; k++) {
                         if (tailX[k] == j && tailY[k] == i) {
-                            cout << "o"; // Snake body
+                            cout << "o";
                             print = true;
                         }
                     }
                     if (!print) cout << " ";
                 }
 
-                if (j == w - 1) cout << "#";
+                if (j == w - 1) cout << "*";
             }
             cout << endl;
         }
 
-        for (int i = 0; i < w + 2; i++) cout << "#";
+        for (int i = 0; i < w + 2; i++) cout<<"*";
         cout << endl;
-        cout << "Score: " << score << endl;
+        cout << "--> Score : " << score << endl;
     }
 
     void Input() {
@@ -128,7 +137,6 @@ public:
             foodY = rand() % h;
             nTail++;
 
-            // Increase speed every 50 points
             if (score % 50 == 0 && speed > 10) 
                 speed -= 5;
         }
@@ -141,7 +149,11 @@ public:
         foodY = rand() % h;
         score = 0;
         dir = RIGHT;
-        nTail = 0;
+        nTail = 2;
+        for (int i = 0; i < nTail; i++) {
+            tailX[i] = x - (i + 1);
+            tailY[i] = y;
+        }
         gameOver = false;
     }
 
@@ -159,6 +171,10 @@ int main() {
     SnakeGame game;
     game.Run();
     while(game.gameOver){
+        if(game.score > game.maxscore){
+            game.maxscore = game.score;
+        }
+
         cout<<"You Want To Restart The Game(Yes[y]/No[n])? : ";
         char choice;
         cin>>choice;
@@ -167,6 +183,7 @@ int main() {
             game.Run();
         }
         else{
+            cout<<endl<<"(^_^) Thank You For Playing (^_^) !!" <<endl<< "--> Highest Score : "<<game.maxscore <<endl;
             return 0;
         }
     }
